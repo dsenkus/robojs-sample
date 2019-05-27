@@ -1,0 +1,22 @@
+{
+  "name": "lambda",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "npm run predeploy && aws lambda update-function-code --function-name queueTasks --zip-file fileb://Lambda-Deployment.zip",
+    "predeploy": "zip -r Lambda-Deployment.zip * -x *.zip *.log"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.300.0",
+    "cheerio": "^1.0.0-rc.2",
+    "pg-promise": "^8.4.6",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.5",
+    "sparkpost": "^2.1.2",
+    "vm2": "^3.6.3"
+  }
+}

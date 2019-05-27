@@ -1,0 +1,81 @@
+@import 'styles/variables';
+
+.AppAuthenticated {
+  display: grid;
+  min-height: 100vh;
+
+  grid-template-columns: auto;
+  grid-template-rows: $header-height auto 3rem;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+
+  &-Content {
+    grid-area: main;
+    background: $content-bg;
+  }
+
+  &-Wrapper {
+    padding: $gutters;
+    max-width: $max-content-width;
+  }
+
+  &-Header {
+    grid-area: header;
+  }
+
+  &-Footer {
+    background: $content-bg;
+    display: flex;
+    align-items: center;
+    grid-area: footer;
+
+    .Footer {
+      flex-grow: 1;
+    }
+  }
+
+  &--withSidebar {
+    grid-template-rows: $header-height auto;
+    grid-template-areas:
+      "header"
+      "main";
+    .AppAuthenticated-Sidebar {
+      grid-area: main footer;
+
+    }
+    .AppAuthenticated-Content {
+      display: none;
+    }
+    .AppAuthenticated-Footer {
+      display: none;
+    }
+  }
+}
+
+@media (min-width: 960px) {
+  .AppAuthenticated {
+    grid-template-columns: 270px auto;
+    grid-template-areas:
+      "header header"
+      "sidebar main"
+      "sidebar footer";
+
+    &-Content {
+    }
+
+    &-Wrapper {
+    }
+
+    &-Header {
+    }
+
+    &-Sidebar {
+      grid-area: sidebar;
+    }
+
+    &-Footer {
+    }
+  }
+}
